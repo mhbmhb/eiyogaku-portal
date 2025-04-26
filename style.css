@@ -97,3 +97,14 @@ form textarea {
 .submit-button:hover {
   background-color: #e0b89d;
 }
+form {
+  text-align: center;
+}
+
+form textarea {
+  display: inline-block;
+}
+
+.submit-button {
+  display: inline-block;
+}
