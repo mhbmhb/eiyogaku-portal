@@ -1,0 +1,59 @@
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #fefaf6;
+  color: #5a5a5a;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #fff;
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8em;
+  color: #7d5a50;
+}
+
+nav a {
+  margin: 0 10px;
+  color: #a67c52;
+  text-decoration: none;
+  font-size: 1em;
+}
+
+#hero {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+#hero h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.cta-button {
+  background-color: #f2c9ac;
+  color: #fff;
+  padding: 10px 30px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+#guide {
+  background-color: #fff;
+  padding: 30px;
+  margin-top: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #f9f1e7;
+  font-size: 0.9em;
+}
