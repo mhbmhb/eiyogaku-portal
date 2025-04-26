@@ -57,3 +57,43 @@ footer {
   background-color: #f9f1e7;
   font-size: 0.9em;
 }
+
+#form {
+  background-color: #fff;
+  padding: 30px;
+  margin-top: 20px;
+}
+
+#form h3 {
+  text-align: center;
+  color: #7d5a50;
+}
+
+form textarea {
+  width: 90%;
+  height: 150px;
+  margin: 10px auto;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 1em;
+  resize: vertical;
+}
+
+.submit-button {
+  background-color: #f2c9ac;
+  color: #fff;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 25px;
+  font-size: 1.2em;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto 0;
+  text-align: center;
+}
+
+.submit-button:hover {
+  background-color: #e0b89d;
+}
