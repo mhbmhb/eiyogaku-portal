@@ -66,6 +66,10 @@
       e.preventDefault(); // 本来の送信を止める
       alert('送信完了しました！'); // アラートで表示
       form.reset(); // 入力内容をリセット
+
+      // 使い方ガイドに自動スクロール
+      const guideSection = document.getElementById('guide');
+      guideSection.scrollIntoView({ behavior: 'smooth' });
     });
   });
 </script>
