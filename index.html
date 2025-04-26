@@ -25,6 +25,24 @@
  <section id="form">
   <h3>質問する</h3>
   <form action="#" method="post">
+   <label for="subject">科目を選択してください：</label><br>
+<select name="subject" id="subject" required>
+  <option value="">--選択してください--</option>
+  <option value="解剖生理学実験">解剖生理学実験</option>
+  <option value="給食経営管理論">給食経営管理論</option>
+  <option value="保健福祉概論">保健福祉概論</option>
+  <option value="給食経営管理実習">給食経営管理実習</option>
+  <option value="公衆栄養学">公衆栄養学</option>
+  <option value="栄養生化学実験">栄養生化学実験</option>
+  <option value="臨床栄養学実習">臨床栄養学実習</option>
+  <option value="臨床栄養学">臨床栄養学</option>
+  <option value="食品衛生学">食品衛生学</option>
+  <option value="応用栄養学">応用栄養学</option>
+  <option value="病理学">病理学</option>
+  <option value="臨床栄養カウンセリング論">臨床栄養カウンセリング論</option>
+  <option value="食品学実験">食品学実験</option>
+</select>
+<br><br>
     <textarea name="question" placeholder="ここに質問内容を入力してください…" required></textarea>
     <br>
     <button type="submit" class="submit-button">送信する</button>
