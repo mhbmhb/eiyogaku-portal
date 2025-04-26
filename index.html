@@ -41,5 +41,16 @@
   <small>&copy; 2025 栄養学ラーニングポータル</small>
 </footer>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // 本来の送信を止める
+      alert('送信完了しました！'); // アラートで表示
+      form.reset(); // 入力内容をリセット
+    });
+  });
+</script>
+  
 </body>
 </html>
