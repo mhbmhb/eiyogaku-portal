@@ -108,3 +108,12 @@ form textarea {
 .submit-button {
   display: inline-block;
 }
+form select {
+  width: 90%;
+  margin: 10px auto;
+  display: block;
+  padding: 10px;
+  font-size: 1em;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
