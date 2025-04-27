@@ -82,25 +82,24 @@
       answerArea.textContent = '考え中です…少々お待ちください。';
 
       try {
-        const response = await fetch('https://script.google.com/macros/s/AKfycbxet7EQagZaSr_o91GWu1f_mV2zeKSwKYOV2S-Q886TB2AR6IKyd4CyVL0q7205Zxib/exec', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            subject: subject,
-            question: question
-          })
-        });
+  const response = await fetch('あなたのGASウェブアプリURL', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      subject: subject,
+      question: question
+    })
+  });
 
-        const result = await response.json();
-        answerArea.textContent = result.answer || '回答取得に失敗しました。';
-
-        form.reset(); // 入力フォームリセット
-      } catch (error) {
-        console.error(error);
-        answerArea.textContent = 'エラーが発生しました。もう一度お試しください。';
-      }
+  const result = await response.json();
+  answerArea.textContent = result.answer || '回答が取得できませんでした。';
+  form.reset(); // 質問送信後にリセット
+} catch (error) {
+  console.error(error);
+  answerArea.textContent = 'エラーが発生しました。もう一度お試しください。';
+}
     });
   });
 </script>
