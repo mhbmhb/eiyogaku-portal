@@ -61,47 +61,43 @@
 </footer>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const form = document.querySelector('form');
-    const subjectSelect = document.getElementById('subject');
-    const questionTextarea = document.querySelector('textarea');
-    const answerArea = document.getElementById('answer'); // 回答表示用エリアを想定
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.querySelector('form');
+  const subjectSelect = document.getElementById('subject');
+  const questionTextarea = document.querySelector('textarea');
+  const answerArea = document.getElementById('answer'); // 回答表示用エリア
 
-    form.addEventListener('submit', async function(e) {
-  e.preventDefault();
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
 
-  const subject = subjectSelect.value;
-  const question = questionTextarea.value;
+    const subject = subjectSelect.value;
+    const question = questionTextarea.value;
 
-  if (!subject || !question) {
-    alert('科目と質問を入力してください！');
-    return;
-  }
+    if (!subject || !question) {
+      alert('科目と質問を入力してください！');
+      return;
+    }
 
-  // 「考え中」表示
-  answerArea.textContent = '考え中です...少々お待ちください。';
+    answerArea.textContent = '考え中です…少々お待ちください。';
 
-  try {
-    const response = await fetch('https://script.google.com/macros/s/AKfycbxx9qrjz69goGXYpObpmIXleT3On-3FfOrSxdsbPBUJGY1q9stRS9LqI1AjXa3wU_6A/exec', {
-      method: 'POST',
-      mode: 'no-cors', // ←これ絶対入れる！
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        subject: subject,
-        question: question
-      })
-    });
+    try {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbw_7v8MhA1xpX1dwqFRncCeXbzkIcEJzQM7_cDQY-SOmps-70fOUF-9rao56pmrVHk1/exec', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ subject, question })
+      });
 
-    // no-corsモードではresponse.json()できないので仮の成功処理
-    answerArea.textContent = '送信成功！（回答は順次表示されます）';
+      const result = await response.json();
+      answerArea.textContent = result.answer || '回答取得に失敗しました。';
 
-    form.reset(); // フォームクリア
-  } catch (error) {
-    console.error(error);
-    answerArea.textContent = 'エラーが発生しました。もう一度お試しください。';
-  }
+      form.reset(); // 質問入力フォームをクリア
+    } catch (error) {
+      console.error(error);
+      answerArea.textContent = 'エラーが発生しました。もう一度お試しください。';
+    }
+  });
 });
 </script>
   
