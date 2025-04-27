@@ -130,3 +130,39 @@ body {
     opacity: 1;
   }
 }
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.5em;
+  }
+
+  nav a {
+    font-size: 0.9em;
+    margin: 0 5px;
+  }
+
+  #hero h2 {
+    font-size: 1.2em;
+    padding: 20px 10px;
+  }
+
+  .cta-button {
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+
+  form select,
+  form textarea {
+    width: 95%;
+    font-size: 0.9em;
+  }
+
+  .submit-button {
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+
+  footer {
+    font-size: 0.8em;
+    padding: 10px;
+  }
+}
