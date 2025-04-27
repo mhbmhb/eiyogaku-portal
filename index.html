@@ -64,31 +64,42 @@
     const form = document.querySelector('form');
     const subjectSelect = document.getElementById('subject');
     const questionTextarea = document.querySelector('textarea');
+    const answerArea = document.getElementById('answer'); // 回答表示用エリアを想定
 
-    form.addEventListener('submit', function(e) {
-      e.preventDefault(); // 本来の送信を止める
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
 
       const subject = subjectSelect.value;
       const question = questionTextarea.value;
 
-      fetch('https://script.google.com/macros/s/AKfycbwkTjADAD0iWTY_blBfq9lenWX0ISh8EC4kC_wTUzqWE1YoiMQhjO3tJZQ4PKXClEHu/exec', {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          subject: subject,
-          question: question
-        })
-      });
+      if (!subject || !question) {
+        alert('科目と質問を入力してください！');
+        return;
+      }
 
-      alert('送信完了しました！'); // アラートで表示
-      form.reset(); // 入力内容をリセット
+      // 送信前に回答欄を「考え中…」にする
+      answerArea.textContent = '考え中です…少々お待ちください。';
 
-      // 使い方ガイドに自動スクロール
-      const guideSection = document.getElementById('guide');
-      guideSection.scrollIntoView({ behavior: 'smooth' });
+      try {
+        const response = await fetch('あなたのGASウェブアプリURLをここに', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            subject: subject,
+            question: question
+          })
+        });
+
+        const result = await response.json();
+        answerArea.textContent = result.answer || '回答取得に失敗しました。';
+
+        form.reset(); // 入力フォームリセット
+      } catch (error) {
+        console.error(error);
+        answerArea.textContent = 'エラーが発生しました。もう一度お試しください。';
+      }
     });
   });
 </script>
