@@ -62,8 +62,27 @@
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('form');
+    const subjectSelect = document.getElementById('subject');
+    const questionTextarea = document.querySelector('textarea');
+
     form.addEventListener('submit', function(e) {
       e.preventDefault(); // 本来の送信を止める
+
+      const subject = subjectSelect.value;
+      const question = questionTextarea.value;
+
+      fetch('https://script.google.com/macros/s/AKfycbwkTjADAD0iWTY_blBfq9lenWX0ISh8EC4kC_wTUzqWE1YoiMQhjO3tJZQ4PKXClEHu/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          subject: subject,
+          question: question
+        })
+      });
+
       alert('送信完了しました！'); // アラートで表示
       form.reset(); // 入力内容をリセット
 
